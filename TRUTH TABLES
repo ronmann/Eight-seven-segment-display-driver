@@ -1,0 +1,148 @@
+//  Pin 2 goes to a PNP Transistor in order to make BL pin go Low
+//  Pin 3 goes to an NPN Transistor in order to  make BL pin go HIGH
+//  Ron Mann 9-25-2016
+//  Build 1.0 for Briefcase Laptop Readout Display
+//  Feel free to share this code if you find useful
+//  Also feel free to leave comments on my github
+//  https://github.com/ronmann
+//
+//
+//  74HC595:
+//
+//  Serial Input - Pin 14 on IC
+//  This is the input data for A,B,C and D on the HCF4511 chip.
+//
+//
+//
+//  OE "Enable" - Pin 13 on IC
+//  We have the enable pin on all 4 shift registers tied together
+//  and connected to a single pin on the Arduino so we can set the
+//  enable HIGH or LOW
+//
+//  SRCLK "Serial Clock" - Pin 11 on IC
+//  Currently we have the serial clock pin on all 4 shift registers
+//  conected to one another to drive the clock pin with one pin on
+//  the microcontroller "Arduino" mega328p.
+//
+//  SRCLR "Serial Clear" - Pin 10 on IC
+//  WE have all 4 shift register serial clear pins tied together in
+//  order to drive with a single Arduino pin.
+//  In order to clear the register we set to LOW.
+//
+//
+//  HCF4511BE:
+//
+//  A - Pin 7 on IC
+//  B - Pin 1 on IC
+//  C - Pin 2 on IC
+//  D - Pin 6 on IC
+//  LE - Pin 5 on IC
+//  BL - Pin 4 on IC
+//  LT - Pin 3 on IC
+//
+//  HCF4511 TRUTH TABLE:
+//  
+//  LE  BL  LT  D  C  B  A  a  b  c  d  e  f  g    DISPLAY
+//  X    X  L   X  X  X  X  H  H  H  H  H  H  H      8
+//  X    L  H   X  X  X  X  L  L  L  L  L  L  L      Blank
+//  L    H  H   L  L  L  L  H  H  H  H  H  H  L      0
+//  L    H  H   L  L  L  H  L  H  H  L  L  L  L      1
+//  L    H  H   L  L  H  L  H  H  L  H  H  L  H      2
+//  L    H  H   L  L  H  H  H  H  H  H  L  L  H      3
+//  L    H  H   L  H  L  L  L  H  H  L  L  H  H      4
+//  L    H  H   L  H  L  H  H  L  H  H  L  H  H      5
+//  L    H  H   L  H  H  L  L  L  H  H  H  H  H      6
+//  L    H  H   L  H  H  H  H  H  H  L  L  L  L      7
+//  L    H  H   H  L  L  L  H  H  H  H  H  H  H      8
+//  L    H  H   H  L  L  H  H  H  H  L  L  H  H      9
+//  L    H  H   H  L  H  L  L  L  L  L  L  L  L      Blank
+//  L    H  H   H  L  H  H  L  L  L  L  L  L  L      Blank
+//  L    H  H   H  H  L  L  L  L  L  L  L  L  L      Blank
+//  L    H  H   H  H  L  H  L  L  L  L  L  L  L      Blank
+//  L    H  H   H  H  H  H  L  L  L  L  L  L  L      Blank
+//  L    H  H   H  H  H  H  L  L  L  L  L  L  L      Blank
+//  H    H  H   X  X  X  X  *  *  *  *  *  *  *      *
+//
+//
+//
+//
+//  74HC595 TRUTH TABLE:
+//
+//  SER  SRCLK  SRCLR  RCLK  OE
+//  X    X      X      X     H    Outputs Qa - Qh are disabled
+//  X    X      X      X     L    Outputs Qa - Qh are enabled
+//  X    X      L      X     X    Shift Register is cleared
+//  L    ^      H      X     X    First stage of the shift register
+//                                goes LOW. Other stages store the data 
+//                                of previous stage.
+//  H    ^      H      X     X    First stage of shift register goes 
+//                                HIGH.  Other stages store the data
+//                                of previous stage.
+//  X    X      X      ^     X    Shift Register data is stored in
+//                                the storage register.
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  There is a shift register "74HC595" for each of A,B,C and D
+//  
+//  There is a BCD to seven segment Latch/Decoder/Driver for each
+//  of the seven segment displays "see schematic"
+//
+//
+//
+//  LTD5523AC - Dual Seven Segment Display Pinout:
+//
+//    PIN #:
+//    BOTTOM ROW:
+//    1 - F "Purple wire"                    second seg 
+//    2 - G "Gray wire"                      second seg
+//    3 - A "Red wire"                       second seg
+//    4 - B "Orange wire"                    second seg
+//    5 - GND "Black"                        second seg
+//    6 - GND "Black"                        first seg
+//    7 - F "Purple wire"                    first seg
+//    8 - A "Red wire"                       first seg
+//    9 - B "Orange wire"                    first seg
+//    TOP ROW:
+//    10 - Decimal Point "White wire"        first seg
+//    11 - C "Yellow wire"                   first seg
+//    12 - G "Gray wire"                     first seg
+//    13 - D "Green wire"                    first seg
+//    14 - E "Blue wire"                     first seg
+//    15 - Decimal Point "White wire"        second seg
+//    16 - C "Yellow wire"                   second seg
+//    17 - D "Green wire"                    second seg
+//    18 - E "Blue wire"                     second seg
+//    
+void setup() {
+  
+  
+  
+}
+
+
+void loop() {
+  
+  
+  
+  
+  
+}
